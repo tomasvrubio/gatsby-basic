@@ -5,6 +5,6 @@ export default () => (
   <div>
     <p>Hello Gatsby!</p>
     <Link to="/account">Go to your account</Link>
-    <a href="/.netlify/functions/hello">Trigger Function</a>
+    <a href="/.netlify/functions/hello">Trigger Function here</a>
   </div>
 )

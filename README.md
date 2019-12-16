@@ -97,3 +97,34 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 (Forzar redespliegue): 1
+
+
+## Pasos que voy siguiendo:
+
+- 1: Tutorial para utilizar servicios oauth para securizar rutas
+
+- 2: Establecer como utilizar variables de entorno tanto en Desarrollo como en Producción (Netlify)
+
+  - Código javascript navegador
+  - Functions (Serverless AWS)
+
+  Hay que utilizar las variables poniendo process.env.GATSBY_blablabla. A las variables de entorno en origen las crearemos con GATSBY_ precediendo su nombre para asegurarnos que se envían a todos los destinos a la hora de hacer el build de Producción. 
+
+  En el código que se ejecutará en navegador no hay que hacer nada para cargar estas variables, si no utilizarlas directamente con process.env.GATSBY_blablabla.
+
+  En el código Serverless, para que coja las funciones fuera de Producción (en Producción no hace daño), hay que utilizar primero la siguiente línea (ponerla por defecto en todas las funciones):
+
+  ```
+  // Estas líneas tienen que ir en la parte superior de todas los ficheros de función para poder cargar variables de entorno de desarrollo
+  // --------------------------------------------------------
+  const envConfig = require("dotenv").config({
+    path: `.env.development`,
+  });
+  //Para cargar una variable en concreto: process.env.NOMBRE_V = envConfig.parsed.NOMBRE_V
+  //Para cargar todas las variables en el fichero de entorno:
+  Object.entries(envConfig.parsed || {}).forEach(
+    ([key, value]) => (process.env[key] = value)
+  );
+  // ---------------------------------------------------------
+  ```
+

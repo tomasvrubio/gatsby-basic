@@ -1,5 +1,5 @@
 // server.js
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 // Estas líneas tienen que ir en la parte superior de todas los ficheros de función para poder cargar variables de entorno de desarrollo
 // --------------------------------------------------------

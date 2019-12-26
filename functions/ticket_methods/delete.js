@@ -1,28 +1,36 @@
-/* Import faunaDB sdk */
-const faunadb = require('faunadb')
+// delete.js
+const mongoose = require('mongoose')
 
-const q = faunadb.query
-const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET
-})
+// Load the server
+//import db from './server'
+const db = require('./server')
 
-module.exports = async (event, context) => {
-  const id = event.id
-  console.log(`Function 'delete' invoked. delete id: ${id}`)
-  return client
-    .query(q.Delete(q.Ref(`classes/todos/${id}`)))
-    .then(response => {
-      console.log('success', response)
-      return {
-        statusCode: 200,
-        body: JSON.stringify(response)
-      }
-    })
-    .catch(error => {
-      console.log('error', error)
-      return {
-        statusCode: 400,
-        body: JSON.stringify(error)
-      }
-    })
+// Load the Product Model
+//import Ticket from './ticketModel'
+const Ticket = require('./ticketModel')
+
+exports.handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
+  
+  try {
+    // Parse the ID
+    const id = JSON.parse(event.body),
+          response = {
+            msg: "Ticket successfully deleted"
+          }
+    
+    // Use ticketModel to delete 
+    await Ticket.findOneAndDelete({ _id: id })
+    
+    return {
+      statusCode: 201,
+      body: JSON.stringify(response)
+    }
+  } catch(err) {
+    console.log('ticket.delete', err) // output to netlify function log
+    return {
+      statusCode: 500,
+      body: JSON.stringify({msg: err.message})
+    }
+  }
 }

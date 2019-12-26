@@ -1,29 +1,38 @@
+//TODO: Buscar sólo un identificador, el solicitado
+// read.js
+const mongoose = require('mongoose')
 
-/* Import faunaDB sdk */
-const faunadb = require('faunadb')
+// Load the server
+//import db from './server'
+const db = require('./server')
 
-const q = faunadb.query
-const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET
-})
+// Load the Ticket Model
+//import Ticket from './ticketModel'
+const Ticket = require('./ticketModel')
 
-module.exports = async (event, context) => {
-  const id = event.id
-  console.log(`Function 'read' invoked. Read id: ${id}`)
-  return client
-    .query(q.Get(q.Ref(`classes/todos/${id}`)))
-    .then(response => {
-      console.log('success', response)
-      return {
-        statusCode: 200,
-        body: JSON.stringify(response)
-      }
-    })
-    .catch(error => {
-      console.log('error', error)
-      return {
-        statusCode: 400,
-        body: JSON.stringify(error)
-      }
-    })
+exports.handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
+  
+  try {
+    // Parse the ID
+    const data = JSON.parse(JSON.parse(event.body)),
+          id = data.id,
+          ticket = await Ticket.find({_id: id}), // Use ticketModel and id to find
+          response = {
+            msg: "Ticket successfully found",
+            data: ticket
+          }
+    
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response)
+    }
+    
+  } catch (err) {
+    console.log('ticket.read', err) // output to netlify function log
+    return {
+      statusCode: 500,
+      body: JSON.stringify({msg: err.message})
+    }
+  }
 }

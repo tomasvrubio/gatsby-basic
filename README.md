@@ -99,6 +99,17 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 (Forzar redespliegue): 1
 
 
+## Para hacer funcionar este repositorio:
+
+npm i -g netlify-cli
+
+npm install
+
+Crear el fichero .env.development con las variables de entorno necesarias... (ver si consigo que se me cree una plantilla automáticamente a través de un plugin)
+
+netlify dev
+
+
 ## Pasos que voy siguiendo:
 
 - 1: Tutorial para utilizar servicios oauth para securizar rutas
@@ -127,4 +138,9 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
   );
   // ---------------------------------------------------------
   ```
+
+- 3: Conexión a BBDD
+
+- 4: Creación de una api
+
 

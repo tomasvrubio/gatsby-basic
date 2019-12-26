@@ -1,5 +1,5 @@
 // server.js
-const mongoose = require('mongoose')
+const {mongoose} = require('mongoose')
 
 // Estas líneas tienen que ir en la parte superior de todas los ficheros de función para poder cargar variables de entorno de desarrollo
 // --------------------------------------------------------
@@ -17,6 +17,7 @@ Object.entries(envConfig.parsed || {}).forEach(
 // Initialize connection to database
 const dbUrl = process.env.GATSBY_MONGODB_URI,
       dbOptions = {
+        dbName: "p_reservation",
         useNewUrlParser: true,
         useFindAndModify: false
       }

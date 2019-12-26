@@ -1,9 +1,9 @@
 // readall.js
-const mongoose = require('mongoose')
+const {mongoose} = require('mongoose')
 
 // Load the server
 //import db from './server'
-const db = require('./server')
+const {db} = require('./server')
 
 // Load the Product Model
 //import Ticket from './ticketModel'

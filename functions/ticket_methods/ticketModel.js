@@ -1,5 +1,5 @@
 // ticketModel.js
-const {mongoose} = require('mongoose')
+const mongoose = require('mongoose')
 
 // Set Product Schema
 const schema = new mongoose.Schema({
@@ -37,4 +37,5 @@ const schema = new mongoose.Schema({
       }),
       Ticket = mongoose.model('ticket', schema)
 
-export default Ticket
+// export default Ticket
+module.exports = Ticket

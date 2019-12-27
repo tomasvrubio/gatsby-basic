@@ -1,5 +1,5 @@
 // server.js
-const {mongoose} = require('mongoose')
+const mongoose = require('mongoose')
 
 // Estas líneas tienen que ir en la parte superior de todas los ficheros de función para poder cargar variables de entorno de desarrollo
 // --------------------------------------------------------
@@ -17,8 +17,8 @@ Object.entries(envConfig.parsed || {}).forEach(
 // Initialize connection to database
 const dbUrl = process.env.GATSBY_MONGODB_URI,
       dbOptions = {
-        dbName: "p_reservation",
         useNewUrlParser: true,
+        useUnifiedTopology: true,
         useFindAndModify: false
       }
 
@@ -28,4 +28,5 @@ mongoose.connect(dbUrl, dbOptions)
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-export default db
+//export default db
+module.exports = db

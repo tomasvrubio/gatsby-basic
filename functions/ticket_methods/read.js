@@ -29,6 +29,8 @@ exports.handler = async (event, context) => {
     }
     
   } catch (err) {
+    console.log("Hola22")
+    console.log('ticket.read', "Hola read")
     console.log('ticket.read', err) // output to netlify function log
     return {
       statusCode: 500,

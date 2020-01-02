@@ -1,15 +1,11 @@
 // update.js
-const {mongoose} = require('mongoose')
 
 // Load the server
 //import db from './server'
-const {db} = require('./server')
+// const {db} = require('./server')
 
-// Load the Ticket Model
-//import Ticket from './ticketModel'
-const Ticket = require('./ticketModel')
 
-exports.handler = async (event, context) => {
+module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
@@ -22,8 +18,8 @@ exports.handler = async (event, context) => {
             data: ticket
           }
     
-    // Use ticketModel and id to update 
-    await Ticket.findOneAndUpdate({_id: id}, ticket)
+    //TODO: Completar código
+
     
     return {
       statusCode: 201,

@@ -1,8 +1,14 @@
 const api = require('./ticket_methods')
 
 exports.handler = async (event, context) => {
-  const path = event.path.replace(/\.netlify\/functions\/[^/]+/, '')
+  console.log(event.path)
+  // const path = event.path.replace(/\.netlify\/functions\/[^/]+/, '')
+  // const segments = path.split('/').filter(e => e)
+  //TODO: Revisar como se comporta en netlify y corregir.
+  const path = event.path.replace(/[^/]+/, '')
   const segments = path.split('/').filter(e => e)
+  // console.log(path)
+  // console.log(segments)
 
   switch (event.httpMethod) {
     case 'GET':

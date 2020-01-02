@@ -1,27 +1,21 @@
 // delete.js
-const mongoose = require('mongoose')
 
 // Load the server
 //import db from './server'
-const db = require('./server')
+// const db = require('./server')
 
-// Load the Product Model
-//import Ticket from './ticketModel'
-const Ticket = require('./ticketModel')
 
-exports.handler = async (event, context) => {
+module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
-    // Parse the ID
     const id = JSON.parse(event.body),
-          response = {
-            msg: "Ticket successfully deleted"
-          }
-    
-    // Use ticketModel to delete 
-    await Ticket.findOneAndDelete({ _id: id })
-    
+    response = {
+      msg: "Ticket successfully deleted"
+    }
+
+    //TODO: BBDD
+
     return {
       statusCode: 201,
       body: JSON.stringify(response)

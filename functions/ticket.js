@@ -7,17 +7,19 @@ exports.handler = async (event, context) => {
   //TODO: Revisar como se comporta en netlify y corregir.
   const path = event.path.replace(/[^/]+/, '')
   const segments = path.split('/').filter(e => e)
-  // console.log(path)
-  // console.log(segments)
+  console.log(path)
+  console.log(segments)
 
   switch (event.httpMethod) {
     case 'GET':
       /* GET /.netlify/functions/api */
       if (segments.length === 0) {
+        console.log("readAll")
         return api.readAll(event, context)
       }
       /* GET /.netlify/functions/api/123456 */
       if (segments.length === 1) {
+        console.log("read")
         event.id = segments[0]
         return api.read(event, context)
       } else {

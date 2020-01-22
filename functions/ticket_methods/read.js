@@ -5,13 +5,13 @@
 // Load the server
 const database = require('./database')
 
-database.db.then((db) => {
-  db.collection('ticket').find({}).toArray().then((resp) => {
-    console.log(resp)
-  })
-})
+// database.db.then((db) => {
+//   db.collection('ticket').find({}).toArray().then((resp) => {
+//     console.log(resp)
+//   })
+// })
 
-console.log(database)
+// console.log(database)
 
 module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false

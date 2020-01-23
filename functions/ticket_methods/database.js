@@ -39,6 +39,3 @@ console.log("Evaluating database.js")
 module.exports = {  
   db: connectToDatabase(process.env.GATSBY_MONGODB_URI)
 }
-
-
-

@@ -11,7 +11,6 @@ module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
-    console.log("Pepe")
     const id = event.id
     //db = await database.db,
     //ticket = await db.collection('ticket').findOne({id}) // Use ticketModel and id to find

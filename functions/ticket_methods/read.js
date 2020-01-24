@@ -10,7 +10,7 @@ module.exports = async (event, context) => {
   
   try {
     const id = event.id,   
-    ticket = await Ticket.findById({"_id": id}),
+    ticket = await Ticket.findById(id),
     response = {
       msg: "Ticket successfully found",
       data: ticket

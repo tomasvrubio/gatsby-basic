@@ -1,8 +1,9 @@
 // create.js
 
 // Load the server
-//import db from './server'
-// const db = require('./server')
+const mongoose = require('mongoose')
+const Ticket = require('./ticketModel')
+const db = require('./database')
 
 
 module.exports = async (event, context) => {
@@ -10,21 +11,24 @@ module.exports = async (event, context) => {
   
   try { 
     const data = JSON.parse(event.body),
-    // name = data.name,
-    // price = parseInt(data.price),
-    // id = mongoose.Types.ObjectId(),
-    // ticket = {
-    //   _id: id,
-    //   name: name,
-    //   price: price,
-    //   __v: 0
-    // },
+    ticket = new Ticket ({
+        _id: mongoose.Types.ObjectId(),
+        name : data.name,
+        email : data.email,
+        phone : data.phone,
+        datePicked : data.datePicked,
+        element : data.element,
+        state : "pending"
+    }),
     response = {
       msg: "Ticket successfully created",
       data: ticket
     }
 
+    console.log(data)
+
     //TODO: Codigo BBDD
+    await ticket.save()
 
     return {
       statusCode: 201,

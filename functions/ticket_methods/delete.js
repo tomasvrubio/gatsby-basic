@@ -1,20 +1,22 @@
 // delete.js
 
 // Load the server
-//import db from './server'
-// const db = require('./server')
+const Ticket = require('./ticketModel')
+const db = require('./database')
 
 
 module.exports = async (event, context) => {
+
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
-    const id = JSON.parse(event.body),
+    const id = event.id,
     response = {
       msg: "Ticket successfully deleted"
     }
 
     //TODO: BBDD
+    await Ticket.findByIdAndDelete(id)
 
     return {
       statusCode: 201,

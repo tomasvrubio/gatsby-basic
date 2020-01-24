@@ -10,32 +10,21 @@ Object.entries(envConfig.parsed || {}).forEach(
 );
 // ---------------------------------------------------------
 
-const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose')
 
-let cachedDb = null;
+// Initialize connection to database
+const dbUrl = process.env.GATSBY_MONGODB_URI,
+      dbOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+      }
 
-function connectToDatabase (uri) {
-  console.log('=> connect to database');
+// Set DB from mongoose connection
+mongoose.connect(dbUrl, dbOptions)
 
-  if (cachedDb) {
-    console.log('=> using cached database instance');
-    return Promise.resolve(cachedDb);
-  }
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-  return MongoClient.connect(uri, { useUnifiedTopology: true })
-    .then(client => {
-      var db = client.db('p_reservation'); //TODO: Aquí ponemos el nombre de la BD dentro del cluster
-      cachedDb = db;
-      return cachedDb;
-    }).catch(err => {
-      console.log(err)
-    })
-  ;
-}
+module.exports = db
 
-
-console.log("Evaluating database.js")
-
-module.exports = {  
-  db: connectToDatabase(process.env.GATSBY_MONGODB_URI)
-}

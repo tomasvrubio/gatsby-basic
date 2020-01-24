@@ -1,24 +1,29 @@
 // read.js
 
 // Load the server
-const database = require('./database')
+// const mongoose = require('mongoose')
+const db = require('./database')
+const Ticket = require('./ticketModel')
+// const db = require('./database')
 
 
 module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
+    console.log("Pepe")
     const id = event.id
-    db = await database.db,
-    ticket = await db.collection('ticket').findOne({id}) // Use ticketModel and id to find
+    //db = await database.db,
+    //ticket = await db.collection('ticket').findOne({id}) // Use ticketModel and id to find
+    ticket = await Ticket.findOne({id}),
     response = {
       msg: "Ticket successfully found",
       data: ticket
     }
 
-    database.db.collection('ticket').findOne({id}).then(a => {
-      console.log(a)
-    })
+    // database.db.collection('ticket').findOne({id}).then(a => {
+    //   console.log(a)
+    // })
 
     console.log(ticket)
     

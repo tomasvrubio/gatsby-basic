@@ -1,30 +1,20 @@
 // read.js
 
-// Load the server
-// const mongoose = require('mongoose')
-const db = require('./database')
+// // Load the database and model
 const Ticket = require('./ticketModel')
-// const db = require('./database')
+const db = require('./database')
 
 
 module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
-    const id = event.id
-    //db = await database.db,
-    //ticket = await db.collection('ticket').findOne({id}) // Use ticketModel and id to find
-    ticket = await Ticket.findOne({id}),
+    const id = event.id,   
+    ticket = await Ticket.findById({"_id": id}),
     response = {
       msg: "Ticket successfully found",
       data: ticket
     }
-
-    // database.db.collection('ticket').findOne({id}).then(a => {
-    //   console.log(a)
-    // })
-
-    console.log(ticket)
     
     return {
       statusCode: 200,

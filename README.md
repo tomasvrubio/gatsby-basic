@@ -143,4 +143,6 @@ netlify dev
 
 - 4: Creación de una api
 
+- 5: Pruebas de api con POSTMAN
 
+  https://www.getpostman.com/collections/f8c511dfc26c139472a6

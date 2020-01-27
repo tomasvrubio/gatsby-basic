@@ -1,8 +1,8 @@
 // update.js
 
 // Load the server
-//import db from './server'
-// const {db} = require('./server')
+const Ticket = require('./ticketModel')
+const db = require('./database')
 
 
 module.exports = async (event, context) => {
@@ -10,13 +10,14 @@ module.exports = async (event, context) => {
   
   try {
     // Parse the ID
-    const data = JSON.parse(JSON.parse(event.body)),
-          id = data.id,
-          ticket = data.ticket,
-          response = {
-            msg: "Ticket successfully updated",
-            data: ticket
-          }
+    const id = event.id,
+    data = JSON.parse(JSON.parse(event.body)),
+    id = data.id,
+    ticket = data.ticket,
+    response = {
+      msg: "Ticket successfully updated",
+      data: ticket
+    }
     
     //TODO: Completar código
 

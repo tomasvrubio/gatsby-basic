@@ -15,11 +15,10 @@ module.exports = async (event, context) => {
       msg: "Ticket successfully deleted"
     }
 
-    //TODO: BBDD
     await Ticket.findByIdAndDelete(id)
 
     return {
-      statusCode: 201,
+      statusCode: 204,
       body: JSON.stringify(response)
     }
   } catch(err) {

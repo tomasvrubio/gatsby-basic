@@ -10,9 +10,11 @@ module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try { 
+    console.log(event.body)
+
     const data = JSON.parse(event.body),
     ticket = new Ticket ({
-        _id: mongoose.Types.ObjectId(),
+        _id: data.id || mongoose.Types.ObjectId(),
         name : data.name,
         email : data.email,
         phone : data.phone,

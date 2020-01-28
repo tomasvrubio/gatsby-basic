@@ -10,12 +10,26 @@ Object.entries(envConfig.parsed || {}).forEach(
 );
 // ---------------------------------------------------------
 
+var logger = require('logzio-nodejs').createLogger({
+    token: 'VyuuWqTQbOiFLYCimjXqOgfdmHVXDXmL',
+    host: 'listener.logz.io',
+    type: 'YourLogType'     // OPTIONAL (If none is set, it will be 'nodejs')
+});
+
 exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   console.log(envConfig.parsed)
   console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
+
+  var obj = { 
+        message: 'Some log message', 
+        param1: 'val1',
+        param2: 'val2'
+    };
+    logger.log(obj);
+    logger.sendAndClose()
 
   return {
     statusCode: 200,

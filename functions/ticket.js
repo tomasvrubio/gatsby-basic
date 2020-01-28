@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
       } else {
         return {
           statusCode: 500,
-          body: 'invalid segments in POST request, must be /.netlify/functions/api/123456'
+          body: 'invalid segments in PUT request, must be /.netlify/functions/api/123456'
         }
       }
     /* DELETE /.netlify/functions/api/123456 */

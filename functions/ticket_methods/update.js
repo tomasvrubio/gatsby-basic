@@ -12,12 +12,12 @@ module.exports = async (event, context) => {
     // Parse the ID
     const id = event.id,
     data = JSON.parse(JSON.parse(event.body)),
-    id = data.id,
-    ticket = data.ticket,
+    // ticket = data.ticket,
     response = {
       msg: "Ticket successfully updated",
-      data: ticket
+      // data: ticket
     }
+    console.log(data)
     
     //TODO: Completar código
 

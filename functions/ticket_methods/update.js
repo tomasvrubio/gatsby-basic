@@ -11,16 +11,14 @@ module.exports = async (event, context) => {
   try {
     // Parse the ID
     const id = event.id,
-    data = JSON.parse(JSON.parse(event.body)),
-    // ticket = data.ticket,
-    response = {
-      msg: "Ticket successfully updated",
-      // data: ticket
-    }
-    console.log(data)
-    
-    //TODO: Completar código
+    data = JSON.parse(event.body)
 
+    ticket = await Ticket.findByIdAndUpdate(id, data, {new: true})
+
+    const response = {
+      msg: "Ticket successfully updated",
+      data: ticket
+    }
     
     return {
       statusCode: 201,

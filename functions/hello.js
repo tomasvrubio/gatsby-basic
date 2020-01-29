@@ -28,8 +28,14 @@ exports.handler = async event => {
         param1: 'val1',
         param2: 'val2'
     };
+
+    logger.log(envConfig.parsed);
+    logger.sendAndClose()
+
     logger.log(process.env);
     logger.sendAndClose()
+
+    
 
   return {
     statusCode: 200,

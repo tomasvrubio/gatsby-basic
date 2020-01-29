@@ -29,10 +29,9 @@ exports.handler = async event => {
         param2: 'val2'
     };
 
-    logger.log(envConfig.parsed);
-    logger.sendAndClose()
-
-    logger.log(process.env);
+    logger.log(event.parsed)
+    logger.log(envConfig.parsed)
+    logger.log(process.env)
     logger.sendAndClose()
 
     

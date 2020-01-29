@@ -13,7 +13,7 @@ Object.entries(envConfig.parsed || {}).forEach(
 var logger = require('logzio-nodejs').createLogger({
     token: 'VyuuWqTQbOiFLYCimjXqOgfdmHVXDXmL',
     host: 'listener.logz.io',
-    //type: 'YourLogType'     // OPTIONAL (If none is set, it will be 'nodejs')
+    type: 'YourLogType'
 });
 
 exports.handler = async event => {
@@ -29,8 +29,11 @@ exports.handler = async event => {
         param2: 'val2'
     };
 
-    logger.log(event)
-    logger.log(process.env)
+    //logger.log(obj)
+    logger.log('This is a log message');
+    logger.sendAndClose();
+//    logger.log(event)
+  //  logger.log(process.env)
     //logger.sendAndClose()
     
 

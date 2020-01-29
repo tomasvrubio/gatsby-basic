@@ -23,23 +23,10 @@ exports.handler = async event => {
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   //console.log(envConfig.parsed)
-  console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
+  //console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
 
-  var obj = { 
-        message: 'Some log message2', 
-        param1: 'val1',
-        param2: 'val2'
-    };
-
-    //logger.log(obj)
-    //logger.log('This is a log message');
     logger.log(event)
     logger.log(process.env)
-    logger.sendAndClose();
-//    logger.log(event)
-  //  logger.log(process.env)
-    //logger.sendAndClose()
-    
 
   return {
     statusCode: 200,

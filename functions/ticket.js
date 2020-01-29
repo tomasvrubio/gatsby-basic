@@ -7,6 +7,8 @@ exports.handler = async (event, context) => {
   //TODO: Revisar como se comporta en netlify y corregir.
   const path = event.path.replace(/[^/]+/, '')
   const segments = path.split('/').filter(e => e)
+  if (!process.env.NETLIFY_DEV)
+    segments.shift()
   console.log(path)
   console.log(segments)
 

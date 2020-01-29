@@ -13,7 +13,9 @@ Object.entries(envConfig.parsed || {}).forEach(
 var logger = require('logzio-nodejs').createLogger({
     token: 'VyuuWqTQbOiFLYCimjXqOgfdmHVXDXmL',
     host: 'listener.logz.io',
-    type: 'YourLogType'
+    protocol: 'https',
+    type: 'YourLogType',
+    bufferSize: 1
 });
 
 exports.handler = async event => {

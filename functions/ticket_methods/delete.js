@@ -10,12 +10,14 @@ module.exports = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   
   try {
-    const id = event.id,
-    response = {
-      msg: "Ticket successfully deleted"
-    }
+    const id = event.id
 
-    await Ticket.findByIdAndDelete(id)
+    ticket = await Ticket.findByIdAndDelete(id)
+
+    const  response = {
+      msg: "Ticket successfully deleted",
+      data: ticket
+    }
 
     return {
       statusCode: 204,

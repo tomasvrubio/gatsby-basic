@@ -29,7 +29,6 @@ module.exports = async (event, context) => {
 
     console.log(data)
 
-    //TODO: Codigo BBDD
     await ticket.save()
 
     return {

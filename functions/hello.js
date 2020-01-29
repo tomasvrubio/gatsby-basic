@@ -32,7 +32,9 @@ exports.handler = async event => {
     };
 
     //logger.log(obj)
-    logger.log('This is a log message');
+    //logger.log('This is a log message');
+    logger.log(event)
+    logger.log(process.env)
     logger.sendAndClose();
 //    logger.log(event)
   //  logger.log(process.env)

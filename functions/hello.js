@@ -20,7 +20,7 @@ exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
-  console.log(envConfig.parsed)
+  //console.log(envConfig.parsed)
   console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
 
   var obj = { 
@@ -29,11 +29,9 @@ exports.handler = async event => {
         param2: 'val2'
     };
 
-    logger.log(event.parsed)
-    logger.log(envConfig.parsed)
+    logger.log(event)
     logger.log(process.env)
-    logger.sendAndClose()
-
+    //logger.sendAndClose()
     
 
   return {

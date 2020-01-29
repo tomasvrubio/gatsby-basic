@@ -13,7 +13,7 @@ Object.entries(envConfig.parsed || {}).forEach(
 var logger = require('logzio-nodejs').createLogger({
     token: 'VyuuWqTQbOiFLYCimjXqOgfdmHVXDXmL',
     host: 'listener.logz.io',
-    type: 'YourLogType'     // OPTIONAL (If none is set, it will be 'nodejs')
+    //type: 'YourLogType'     // OPTIONAL (If none is set, it will be 'nodejs')
 });
 
 exports.handler = async event => {
@@ -24,11 +24,11 @@ exports.handler = async event => {
   console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
 
   var obj = { 
-        message: 'Some log message', 
+        message: 'Some log message2', 
         param1: 'val1',
         param2: 'val2'
     };
-    logger.log(obj);
+    logger.log(process.env);
     logger.sendAndClose()
 
   return {

@@ -1,4 +1,4 @@
-// ticketModel.js
+// elementModel.js
 const mongoose = require('mongoose')
 
 // Set Product Schema
@@ -9,8 +9,9 @@ const schema = new mongoose.Schema({
           required: [true, 'Name field is required'],
           max: 100
         },
-        element: {
-          type: Number
+        description: {
+          type: String,
+          max: 500
         }
       },{
         timestamps: {

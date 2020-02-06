@@ -146,3 +146,5 @@ netlify dev
 - 5: Pruebas de api con POSTMAN
 
   https://www.getpostman.com/collections/f8c511dfc26c139472a6
+
+- 6: Frontal con páginas estáticas + App React

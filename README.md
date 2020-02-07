@@ -148,3 +148,5 @@ netlify dev
   https://www.getpostman.com/collections/f8c511dfc26c139472a6
 
 - 6: Frontal con páginas estáticas + App React
+
+  TODO: Revisar todos los paquetes que estoy metiendo de atlaskit. Muchos de ellos es posible que luego no sean necesarios

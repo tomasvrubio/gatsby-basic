@@ -1,7 +1,7 @@
-import React, {PureComponent, useState} from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
-import { Box, Button, Collapsible, Heading, Grommet, ResponsiveContext } from "grommet"
-import { Notification } from "grommet-icons"
+import { Box, Button, Collapsible, Grommet, Heading, Layer, ResponsiveContext } from "grommet"
+import { Sidebar, FormClose, ProductHunt } from "grommet-icons"
 
 const theme = {
   global: {
@@ -31,56 +31,81 @@ const AppBar = (props) => (
 );
     
 const IndexPage = () => {    
-    const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
 
-    return (
-      <Grommet theme={theme} full>
-      	<ResponsiveContext.Consumer>
-	   			{size => (
-						<Box fill>
-							<AppBar>
-								Hello Grommet!
-								<Heading level='3' margin='none'>My App</Heading>
-								<Button
-									icon={<Notification />}
-									onClick={() => setShowSidebar(!showSidebar)}
-								/>
-							</AppBar>
-							<Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-								<Box flex align='center' justify='center'>
-									app body
-									<div>
-										<p>Hello Gatsby!</p>
-										<p>{process.env.GATSBY_FUNC_PATH}</p>
-										<Link to="/account">Go to your account</Link>
-										{/* <a href="/.netlify/functions/hello">Trigger Function here</a> */}
-										<a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
-									</div>
-								</Box>
-								{size !== 'small' && (
-	           			<Collapsible direction="horizontal" open={showSidebar}>
-										<Box
-											flex
-											width='medium'
-											background='light-2'
-											elevation='small'
-											align='center'
-											justify='center'
-										>
-											sidebar
-										</Box>
-									</Collapsible>
-								)}
-							</Box>
-						</Box>
-					)}
-				</ResponsiveContext.Consumer>
-      </Grommet>
-    )
-  // }
+  return (
+    <Grommet theme={theme} full>
+      <ResponsiveContext.Consumer>
+        {size => (
+          <Box fill>
+            <AppBar>
+              <Box direction='row'>
+                <Button
+                  icon={<ProductHunt />}
+                  onClick={() => {}}
+                />
+                <Heading level='3' margin='none'>miNegocio</Heading>
+              </Box>
+              <Button
+                icon={<Sidebar />}
+                onClick={() => setShowSidebar(!showSidebar)}
+              />
+            </AppBar>
+            <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+              <Box flex align='center' justify='center'>
+                app body
+                <div>
+                  <p>Hello Gatsby!</p>
+                  <p>{process.env.GATSBY_FUNC_PATH}</p>
+                  <Link to="/account">Go to your account</Link>
+                  {/* <a href="/.netlify/functions/hello">Trigger Function here</a> */}
+                  <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
+                </div>
+              </Box>
+              {(!showSidebar || size !== 'small') ? (
+                <Collapsible direction="horizontal" open={showSidebar}>
+                  <Box
+                    flex
+                    width='medium'
+                    background='light-2'
+                    elevation='small'
+                    align='center'
+                    justify='center'
+                  >
+                    sidebar
+                  </Box>
+                </Collapsible>
+              ): (
+                <Layer>
+                  <Box
+                    background='light-2'
+                    tag='header'
+                    justify='end'
+                    align='center'
+                    direction='row'
+                  >
+                    <Button
+                      icon={<FormClose />}
+                      onClick={() => setShowSidebar(false)}
+                    />
+                  </Box>
+                  <Box
+                    fill
+                    background='light-2'
+                    align='center'
+                    justify='center'
+                  >
+                    sidebar
+                  </Box>
+                </Layer>
+              )}
+            </Box>
+          </Box>
+        )}
+      </ResponsiveContext.Consumer>
+    </Grommet>
+  )
 }
-
-
 
 
 export default IndexPage

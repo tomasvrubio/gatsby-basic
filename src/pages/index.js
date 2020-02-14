@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { Box, Button, Collapsible, Grommet, Heading, Layer, ResponsiveContext } from "grommet"
+import { Box, Button, Collapsible, Grommet, Heading, Layer, ResponsiveContext, Text } from "grommet"
 import { Sidebar, FormClose, ProductHunt } from "grommet-icons"
 
 const theme = {
@@ -29,6 +29,17 @@ const AppBar = (props) => (
     {...props}
   />
 );
+
+const SideBarLink = ({ to, text, icon: Icon }) => (
+  <Button as="span" hoverIndicator>
+    <Link to={to}>
+      <Box gap="small" pad="small" direction="row" >
+        <Icon />
+        <Text>{text}</Text>
+      </Box>
+    </Link>
+  </Button>
+)
     
 const IndexPage = () => {    
   const [showSidebar, setShowSidebar] = useState(false)
@@ -52,7 +63,7 @@ const IndexPage = () => {
               />
             </AppBar>
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-              <Box flex align='center' justify='center'>
+              <Box flex align='center' >
                 app body
                 <div>
                   <p>Hello Gatsby!</p>
@@ -61,18 +72,26 @@ const IndexPage = () => {
                   {/* <a href="/.netlify/functions/hello">Trigger Function here</a> */}
                   <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
                 </div>
+                <Box margin='medium' direction='row' flex>
+                  <Box flex align='center'>Tarjeta 1</Box>
+                  <Box flex align='center'>Tarjeta 2</Box>
+                  <Box flex align='center'>Tarjeta 3</Box>
+                </Box>
               </Box>
               {(!showSidebar || size !== 'small') ? (
                 <Collapsible direction="horizontal" open={showSidebar}>
                   <Box
                     flex
                     width='medium'
-                    background='light-2'
+                    background='light-4'
                     elevation='small'
                     align='center'
                     justify='center'
-                  >
-                    sidebar
+                  >  
+                    <Box margin={{ vertical: `small` }}>
+                      <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
+                      <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
+                    </Box>
                   </Box>
                 </Collapsible>
               ): (

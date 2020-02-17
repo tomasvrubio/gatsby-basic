@@ -49,9 +49,11 @@ const IndexPage = () => {
       <ResponsiveContext.Consumer>
         {size => (
           <Box fill>
+            {/* Barra de aplicación */}
             <AppBar>
-              <Box direction='row'>
+              <Box direction='row' align="center">
                 <Button
+                  focusIndicator="false"
                   icon={<ProductHunt />}
                   onClick={() => {}}
                 />
@@ -62,6 +64,7 @@ const IndexPage = () => {
                 onClick={() => setShowSidebar(!showSidebar)}
               />
             </AppBar>
+            {/* Body */}
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' >
                 app body
@@ -72,12 +75,13 @@ const IndexPage = () => {
                   {/* <a href="/.netlify/functions/hello">Trigger Function here</a> */}
                   <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
                 </div>
-                <Box margin='medium' direction='row' flex>
-                  <Box flex align='center'>Tarjeta 1</Box>
-                  <Box flex align='center'>Tarjeta 2</Box>
-                  <Box flex align='center'>Tarjeta 3</Box>
+                <Box direction='row' fill="horizontal" justify="center" wrap="true">
+                  <Box align='center' background="dark-3" border="all" margin="small" pad="medium" width="medium">Tarjeta 1</Box>
+                  <Box align='center' background="dark-3" border="all" margin="small"  pad="medium" width="medium">Tarjeta 2</Box>
+                  <Box align='center' background="dark-3" border="all" margin="small"  pad="medium" width="medium">Tarjeta 3</Box>
                 </Box>
               </Box>
+              {/* Barra lateral */}
               {(!showSidebar || size !== 'small') ? (
                 <Collapsible direction="horizontal" open={showSidebar}>
                   <Box

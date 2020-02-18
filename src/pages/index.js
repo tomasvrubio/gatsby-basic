@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { Box, Button, Collapsible, Grommet, Heading, Layer, ResponsiveContext, Text } from "grommet"
-import { Sidebar, FormClose, ProductHunt } from "grommet-icons"
+import { Anchor, Box, Button, Collapsible, Footer, Grommet, Heading, Layer, ResponsiveContext, Text } from "grommet"
+import { Sidebar, FormClose, ProductHunt, Ticket, Gremlin, Gatsby } from "grommet-icons"
 
 const theme = {
   global: {
@@ -60,6 +60,13 @@ const IndexPage = () => {
                 <Heading level='3' margin='none'>miNegocio</Heading>
               </Box>
               <Button
+                icon={<Ticket />}
+                label="Reserva"
+                color="Yellow"
+                primary="true"
+                onClick={() => {}}
+              />
+              <Button
                 icon={<Sidebar />}
                 onClick={() => setShowSidebar(!showSidebar)}
               />
@@ -76,10 +83,13 @@ const IndexPage = () => {
                   <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
                 </div>
                 <Box direction='row' fill="horizontal" justify="center" wrap="true">
-                  <Box align='center' background="dark-3" border="all" margin="small" pad="medium" width="medium">Tarjeta 1</Box>
-                  <Box align='center' background="dark-3" border="all" margin="small"  pad="medium" width="medium">Tarjeta 2</Box>
-                  <Box align='center' background="dark-3" border="all" margin="small"  pad="medium" width="medium">Tarjeta 3</Box>
+                  <Box align='center' background="dark-3" border="all" margin="small" pad="xlarge" width="medium">Tarjeta 1</Box>
+                  <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 2</Box>
+                  <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 3</Box>
                 </Box>
+                <Box align="center" background="dark-3" border="all" fill="horizontal" pad="large">
+                  Instagram Feed  
+                </Box> 
               </Box>
               {/* Barra lateral */}
               {(!showSidebar || size !== 'small') ? (
@@ -123,6 +133,19 @@ const IndexPage = () => {
                 </Layer>
               )}
             </Box>
+            {/* Footer */}
+            <Footer background="brand" pad="xsmall" gap="xsmall">
+              <Box>
+                <Text size="small">Copyright @tomasvrubio</Text>
+                <Text size="small">with Grommet <Gremlin></Gremlin></Text>
+                <Text size="small">and Gatsby <Gatsby></Gatsby></Text>
+              </Box>
+              <Anchor label="About" />
+              <Box margin={{ vertical: `xsmall` }}>
+                <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
+                <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
+              </Box>
+            </Footer>
           </Box>
         )}
       </ResponsiveContext.Consumer>

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { Anchor, Box, Button, Collapsible, Footer, Grommet, Heading, Layer, ResponsiveContext, Text } from "grommet"
-import { Sidebar, FormClose, ProductHunt, Ticket, Gremlin, Gatsby } from "grommet-icons"
+import { Sidebar, FormClose, ProductHunt, Ticket, Gremlin, Gatsbyjs } from "grommet-icons"
 
 const theme = {
   global: {
@@ -45,12 +45,12 @@ const IndexPage = () => {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <Grommet theme={theme} full>
+    <Grommet theme={theme} >
       <ResponsiveContext.Consumer>
         {size => (
-          <Box fill>
+          <Box fill >
             {/* Barra de aplicación */}
-            <AppBar>
+            <AppBar elevation="small" pad="small">
               <Box direction='row' align="center">
                 <Button
                   focusIndicator="false"
@@ -72,7 +72,7 @@ const IndexPage = () => {
               />
             </AppBar>
             {/* Body */}
-            <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+            <Box direction='row' flex overflow={{ horizontal: 'hidden' }} pad="xsmall">
               <Box flex align='center' >
                 app body
                 <div>
@@ -86,6 +86,22 @@ const IndexPage = () => {
                   <Box align='center' background="dark-3" border="all" margin="small" pad="xlarge" width="medium">Tarjeta 1</Box>
                   <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 2</Box>
                   <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 3</Box>
+                </Box>
+                <Box direction="row" gap="medium" pad="large">
+                  <Button
+                    icon={<Ticket />}
+                    label="Reserva"
+                    color="Yellow"
+                    primary="true"
+                    onClick={() => {}}
+                  />
+                  <Button
+                    icon={<Ticket />}
+                    label="Reserva"
+                    color="Yellow"
+                    primary="true"
+                    onClick={() => {}}
+                  />
                 </Box>
                 <Box align="center" background="dark-3" border="all" fill="horizontal" pad="large">
                   Instagram Feed  
@@ -134,11 +150,11 @@ const IndexPage = () => {
               )}
             </Box>
             {/* Footer */}
-            <Footer background="brand" pad="xsmall" gap="xsmall">
+            <Footer background="brand" flex>
               <Box>
-                <Text size="small">Copyright @tomasvrubio</Text>
-                <Text size="small">with Grommet <Gremlin></Gremlin></Text>
-                <Text size="small">and Gatsby <Gatsby></Gatsby></Text>
+                <Text size="small">Copyright <Anchor label="@tomasvrubio" href="https://github.com/tomasvrubio" /></Text>
+                <Text size="small">with Grommet <Gremlin size="small" /></Text>
+                <Text size="small">and Gatsby <Gatsbyjs size="small"/></Text>
               </Box>
               <Anchor label="About" />
               <Box margin={{ vertical: `xsmall` }}>

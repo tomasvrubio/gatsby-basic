@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { Anchor, Box, Button, Collapsible, Footer, Grommet, Heading, Layer, ResponsiveContext, Text } from "grommet"
-import { Sidebar, FormClose, ProductHunt, Ticket, Gremlin, Gatsbyjs } from "grommet-icons"
+import { Contact, Sidebar, FormClose, ProductHunt, Ticket, Gremlin, Gatsbyjs } from "grommet-icons"
 
 const theme = {
   global: {
@@ -89,10 +89,9 @@ const IndexPage = () => {
                 </Box>
                 <Box direction="row" gap="medium" pad="large">
                   <Button
-                    icon={<Ticket />}
-                    label="Reserva"
-                    color="Yellow"
-                    primary="true"
+                    icon={<Contact />}
+                    label="Contacta con nosotros"
+                    color="Grey"
                     onClick={() => {}}
                   />
                   <Button
@@ -150,7 +149,7 @@ const IndexPage = () => {
               )}
             </Box>
             {/* Footer */}
-            <Footer background="brand" flex>
+            <Footer background="brand">
               <Box>
                 <Text size="small">Copyright <Anchor label="@tomasvrubio" href="https://github.com/tomasvrubio" /></Text>
                 <Text size="small">with Grommet <Gremlin size="small" /></Text>

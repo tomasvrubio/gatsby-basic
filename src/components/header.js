@@ -1,19 +1,44 @@
 import React from 'react';
-import { Box, Heading, Text, Button } from 'grommet';
-// import Link from 'next/link';
+import { Box, Heading, Button } from 'grommet';
+import { Sidebar, ProductHunt, Ticket } from "grommet-icons"
 
-const Header = () => (
-  <Box direction='row' pad='medium' align='center' justify='between' background='dark-2'>
-    <Box direction='row' justify='left' gap='small'>
-      <Heading margin='none' level='3'>Horizontal Working</Heading>
-      <Text size='xsmall'>The world&#8217;s best kept secret</Text>
-    </Box>
-    <Box direction='row' justify='right' gap='small'>
-      {/* <Link href='/'><Button>Home</Button></Link>
-      <Link href='/history'><Button>History</Button></Link>
-      <Link href='/gallery'><Button>Gallery</Button></Link> */}
-    </Box>
-  </Box>
+const AppBar = (props) => (
+  <Box
+    tag='header'
+    direction='row'
+    align='center'
+    justify='between'
+    background='brand'
+    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+    elevation='medium'
+    style={{ zIndex: '1' }}
+    {...props}
+  />
 );
 
-export default Header;
+const ownAppBar = () => (
+  <AppBar elevation="small" pad="small">
+    <Box direction='row' align="center">
+      <Button
+        focusIndicator="false"
+        icon={<ProductHunt />}
+        onClick={() => {}}
+      />
+      <Heading level='3' margin='none'>miNegocio</Heading>
+    </Box>
+    <Button
+      icon={<Ticket />}
+      label="Reserva"
+      color="Yellow"
+      primary="true"
+      onClick={() => {}}
+    />
+    <Button
+      icon={<Sidebar />}
+      // onClick={() => setShowSidebar(!showSidebar)
+      onClick={() => {}}
+    />
+  </AppBar>
+);
+
+export default ownAppBar;

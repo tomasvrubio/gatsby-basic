@@ -1,41 +1,22 @@
-import React from 'react';
-import { Box, Paragraph, Heading, Image } from 'grommet';
+import React from "react"
+import { Link } from "gatsby"
+import { Anchor, Box, Footer, Text } from 'grommet';
+import { Gremlin, Gatsbyjs } from "grommet-icons"
 
-const Footer = () => (
-  <Box>
-    <Box align='center' pad='xsmall' background='dark-2'>
-      <Heading margin='small' level='3'>www.horizontalworking.com</Heading>
-      <Paragraph style={{ maxWidth: '500px' }}>The Horizontal Working (HoWo) association is dedicated to the adoption,
-      promotion and funding of the horizontal working movement.
-      </Paragraph>
-      <Box direction='row'>
-        <a style={{ maxWidth: '50%' }} href='https://bufferapp.com/add?url=http://www.horizontalworking.com&text=Horizontal Working News'>
-          <img style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/buffer.png' alt='Buffer' />
-        </a>
-        <a style={{ maxWidth: '50%' }} href='http://www.horizontalworking.com/mailto:?Subject=Horizontal Working News&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://www.horizontalworking.com'>
-          <img style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/email.png' alt='Email' />
-        </a>
-        <a href='http://www.facebook.com/sharer.php?u=http://www.horizontalworking.com'>
-          <Image style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/facebook.png' alt='Facebook' />
-        </a>
-        <a href='https://plus.google.com/share?url=http://www.horizontalworking.com'>
-          <Image style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/google.png' alt='Google+' />
-        </a>
-        <a href='http://www.linkedin.com/shareArticle?mini=true&url=http://www.horizontalworking.com'>
-          <Image style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/linkedin.png' alt='LinkedIn' />
-        </a>
-        <a href='http://reddit.com/submit?url=http://www.horizontalworking.com&title=Horizontal Working News'>
-          <Image style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/reddit.png' alt='buffer' />
-        </a>
-        <a href='https://twitter.com/share?url=http://www.horizontalworking.com&text=Horizontal%20Working%20News&hashtags=horizontalworking'>
-          <Image style={{ maxWidth: '50%' }} src='https://simplesharebuttons.com/images/somacro/twitter.png' alt='buffer' />
-        </a>
-      </Box>
+
+const OwnFooter = () => (
+  <Footer background="brand" pad="small">
+    <Box>
+      <Text size="small">Copyright <Anchor label="@tomasvrubio" href="https://github.com/tomasvrubio" /></Text>
+      <Text size="small">with Grommet <Gremlin size="small" /></Text>
+      <Text size="small">and Gatsby <Gatsbyjs size="small"/></Text>
     </Box>
-    <Box align='center' background='dark-1'>
-      <Paragraph>Copyright (c) 2018 HoWo Intl.</Paragraph>
+    <Anchor label="About" />
+    <Box margin={{ vertical: `xsmall` }}>
+      <Anchor label="Admin" href="/account"/>
     </Box>
-  </Box>
+  </Footer>
 );
 
-export default Footer;
+
+export default OwnFooter;

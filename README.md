@@ -109,6 +109,7 @@ Crear el fichero .env.development con las variables de entorno necesarias... (ve
 
 netlify dev
 
+WT: 75c6c155-a6c9-429a-a5f2-f4736abf945f
 
 ## Pasos que voy siguiendo:
 
@@ -150,3 +151,17 @@ netlify dev
 - 6: Frontal con páginas estáticas + App React
 
   TODO: Revisar todos los paquetes que estoy metiendo de atlaskit. Muchos de ellos es posible que luego no sean necesarios
+
+    Estoy haciendo un listado de las funciones que tengo y así aprendo a usar el plugin de filesystem:
+
+    query MyQuery2 {
+        allFile(filter: {relativeDirectory: {}}) {
+            edges {
+                node {
+                    extension
+                    name
+                    relativeDirectory
+                }
+            }
+        }
+    }

@@ -16,29 +16,39 @@ const AppBar = (props) => (
   />
 );
 
-const ownAppBar = () => (
-  <AppBar elevation="small" pad="small">
-    <Box direction='row' align="center">
+const ownAppBar = () => {
+  // this.state = {
+  //   showSidebar: useState(false)
+  //   // setShowSidebar: useState(false)
+  // }
+  // // const [showSidebar] = useState(false)
+  // // const [showSidebar, setShowSidebar] = useState(false)
+
+  return (
+    <AppBar elevation="small" pad="small">
+      <Box direction='row' align="center">
+        <Button
+          focusIndicator="false"
+          icon={<ProductHunt />}
+          onClick={() => {}}
+        />
+        <Heading level='3' margin='none'>miNegocio</Heading>
+      </Box>
       <Button
-        focusIndicator="false"
-        icon={<ProductHunt />}
+        icon={<Ticket />}
+        label="Reserva"
+        color="Yellow"
+        primary="true"
         onClick={() => {}}
       />
-      <Heading level='3' margin='none'>miNegocio</Heading>
-    </Box>
-    <Button
-      icon={<Ticket />}
-      label="Reserva"
-      color="Yellow"
-      primary="true"
-      onClick={() => {}}
-    />
-    <Button
-      icon={<Sidebar />}
-      // onClick={() => setShowSidebar(!showSidebar)
-      onClick={() => {}}
-    />
-  </AppBar>
-);
+      <Button
+        icon={<Sidebar />}
+        // onClick={() => this.setState.showSidebar(!this.state.showSidebar)}
+        // onClick={() => setShowSidebar(!showSidebar)}
+        onClick={() => {}}
+      />
+    </AppBar>
+  )
+};
 
 export default ownAppBar;

@@ -42,7 +42,7 @@ const SideBarLink = ({ to, text, icon: Icon }) => (
 )
     
 const IndexPage = () => {    
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar] = useState(false)
 
   return (
     <Grommet theme={theme} >
@@ -68,18 +68,17 @@ const IndexPage = () => {
               />
               <Button
                 icon={<Sidebar />}
-                onClick={() => setShowSidebar(!showSidebar)}
+                onClick={() => showSidebar(!showSidebar)}
               />
             </AppBar>
             {/* Body */}
-            <Box direction='row' flex overflow={{ horizontal: 'hidden' }} pad="xsmall">
+            <Box direction='row' flex overflow={{ horizontal: 'hidden' }} pad="xsmall"> 
               <Box flex align='center' >
-                app body
                 <div>
                   <p>Hello Gatsby!</p>
                   <p>{process.env.GATSBY_FUNC_PATH}</p>
                   <Link to="/account">Go to your account</Link>
-                  {/* <a href="/.netlify/functions/hello">Trigger Function here</a> */}
+                  <Link to="/history">Go to history</Link>
                   <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
                 </div>
                 <Box direction='row' fill="horizontal" justify="center" wrap="true">
@@ -134,7 +133,7 @@ const IndexPage = () => {
                   >
                     <Button
                       icon={<FormClose />}
-                      onClick={() => setShowSidebar(false)}
+                      onClick={() => showSidebar(false)}
                     />
                   </Box>
                   <Box

@@ -42,10 +42,10 @@ const SideBarLink = ({ to, text, icon: Icon }) => (
 )
     
 const IndexPage = () => {    
-  const [showSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <Grommet theme={theme} >
+    <Grommet full theme={theme} >
       <ResponsiveContext.Consumer>
         {size => (
           <Box fill >
@@ -56,6 +56,7 @@ const IndexPage = () => {
                   focusIndicator="false"
                   icon={<ProductHunt />}
                   onClick={() => {}}
+                  href="/"
                 />
                 <Heading level='3' margin='none'>miNegocio</Heading>
               </Box>
@@ -68,7 +69,7 @@ const IndexPage = () => {
               />
               <Button
                 icon={<Sidebar />}
-                onClick={() => showSidebar(!showSidebar)}
+                onClick={() => setShowSidebar(!showSidebar)}
               />
             </AppBar>
             {/* Body */}

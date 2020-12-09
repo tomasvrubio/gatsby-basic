@@ -165,3 +165,10 @@ WT: 75c6c155-a6c9-429a-a5f2-f4736abf945f
             }
         }
     }
+
+
+  Pasar info entre componentes:
+  https://www.pluralsight.com/guides/how-to-pass-data-between-react-components
+
+  Leyendome los tutoriales de react:
+  https://reactjs.org/docs/conditional-rendering.html

@@ -11,7 +11,7 @@ const OwnFooter = () => (
       <Text size="small">with Grommet <Gremlin size="small" /></Text>
       <Text size="small">and Gatsby <Gatsbyjs size="small"/></Text>
     </Box>
-    <Anchor label="About" />
+    <Anchor label="History" href="/history"/>
     <Box margin={{ vertical: `xsmall` }}>
       <Anchor label="Admin" href="/account"/>
     </Box>

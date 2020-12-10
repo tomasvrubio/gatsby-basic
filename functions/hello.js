@@ -27,11 +27,13 @@ const logger = winston.createLogger({
 
 console.log(process.env.GATSBY_LOG_TOKEN)
 
-logger.error('hello papertrail');
+// logger.error('hello papertrail');
 logger.error(process.env)
 
 exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
+
+  logger.error('hello papertrail');
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   //console.log(envConfig.parsed)

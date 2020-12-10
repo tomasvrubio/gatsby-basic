@@ -10,13 +10,23 @@ Object.entries(envConfig.parsed || {}).forEach(
 );
 // ---------------------------------------------------------
 
-var logger = require('logzio-nodejs').createLogger({
-    token: 'pdhIxokIVOdvudkuGxNCgnGOVdWZiCaf',
-    host: 'listener.logz.io',
-    protocol: 'https',
-    type: 'YourLogType',
-    bufferSize: 1
+
+const winston = require('winston');
+
+const papertrail = new winston.transports.Http({
+  host: 'logs.collector.solarwinds.com',
+  path: '/v1/log',
+  auth: { username: new String(''), password: process.env.GATSBY_LOG_TOKEN },
+  ssl: true,
+  level: "info"
 });
+
+const logger = winston.createLogger({
+  transports: [papertrail],
+});
+
+logger.error('hello papertrail');
+logger.error(process.env)
 
 exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
@@ -25,8 +35,8 @@ exports.handler = async event => {
   //console.log(envConfig.parsed)
   //console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.
 
-    logger.log(event)
-    logger.log(process.env)
+    // logger.log(event)
+    // logger.log(process.env)
 
   return {
     statusCode: 200,

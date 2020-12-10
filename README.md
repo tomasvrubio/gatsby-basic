@@ -111,6 +111,10 @@ netlify dev
 
 WT: 75c6c155-a6c9-429a-a5f2-f4736abf945f
 
+## Entorno de desarrollo
+
+Lo realizo todo online a través de GITPOD
+
 ## Pasos que voy siguiendo:
 
 - 1: Tutorial para utilizar servicios oauth para securizar rutas
@@ -150,7 +154,20 @@ WT: 75c6c155-a6c9-429a-a5f2-f4736abf945f
 
 - 6: Frontal con páginas estáticas + App React
 
-  TODO: Revisar todos los paquetes que estoy metiendo de atlaskit. Muchos de ellos es posible que luego no sean necesarios
+  Primero trato de usar atlaskit. Tengo algún problema utilizándolo (más adelante podré volver a intentarlo) y decido pasar a Grommet.
+
+  Creo un layout que hace uso del header y del footer. 
+
+  Aprendo a pasar propiedades entre componentes (header <-> layout) y así poder hacer esconder un sidebar.Lo saco de:
+    Pasar info entre componentes:
+    https://www.pluralsight.com/guides/how-to-pass-data-between-react-components
+    Documentacion REACT:
+    https://reactjs.org/docs/conditional-rendering.html
+
+  Logging a través de papertrail (https://papertrailapp.com/)
+
+
+
 
     Estoy haciendo un listado de las funciones que tengo y así aprendo a usar el plugin de filesystem:
 
@@ -166,9 +183,3 @@ WT: 75c6c155-a6c9-429a-a5f2-f4736abf945f
         }
     }
 
-
-  Pasar info entre componentes:
-  https://www.pluralsight.com/guides/how-to-pass-data-between-react-components
-
-  Leyendome los tutoriales de react:
-  https://reactjs.org/docs/conditional-rendering.html

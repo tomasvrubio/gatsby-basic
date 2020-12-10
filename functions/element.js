@@ -1,14 +1,16 @@
 const api = require('./element_methods')
 
 exports.handler = async (event, context) => {
+  
   // console.log(event.path)
   const path = event.path.replace(/[^/]+/, '')
   const segments = path.split('/').filter(e => e)
-  if (!process.env.NETLIFY_DEV) {
-    segments.shift()
-    segments.shift()
-  }
-    
+  // console.log(segments)
+  // if (!process.env.NETLIFY_DEV) {
+  segments.shift()
+  segments.shift()
+  // }
+ 
   // console.log(path)
   // console.log(segments)
 

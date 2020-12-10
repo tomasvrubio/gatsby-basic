@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, Box } from 'grommet';
+
 import Layout from '../components/layout';
 
 const History = () => (

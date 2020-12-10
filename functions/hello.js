@@ -25,6 +25,8 @@ const logger = winston.createLogger({
   transports: [papertrail],
 });
 
+console.log(process.env.GATSBY_LOG_TOKEN)
+
 logger.error('hello papertrail');
 logger.error(process.env)
 

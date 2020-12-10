@@ -21,6 +21,8 @@ const papertrail = new winston.transports.Http({
   level: "info"
 });
 
+console.log (papertrail)
+
 const logger = winston.createLogger({
   transports: [papertrail],
 });

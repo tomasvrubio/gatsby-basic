@@ -164,12 +164,18 @@ Lo realizo todo online a través de GITPOD
     Documentacion REACT:
     https://reactjs.org/docs/conditional-rendering.html
 
-  Logging a través de papertrail (https://papertrailapp.com/)
+  Logging a través de papertrail (https://papertrailapp.com/) y Winston
+
+  Formulario que rellenar.
+
+  Css para ocupar toda la pantalla y no dejar bordes: https://dev.to/hzburki/100-height-to-all-divs-gatsby-33nd
+
+  Recuperar un listado con informacion de la BBDD a través de una funcion. Pinchar sobre uno y acceder a su detalle.
 
 
 
 
-    Estoy haciendo un listado de las funciones que tengo y así aprendo a usar el plugin de filesystem:
+  Estoy haciendo un listado de las funciones que tengo y así aprendo a usar el plugin de filesystem:
 
     query MyQuery2 {
         allFile(filter: {relativeDirectory: {}}) {

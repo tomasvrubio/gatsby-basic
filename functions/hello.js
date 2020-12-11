@@ -21,21 +21,17 @@ const papertrail = new winston.transports.Http({
   level: "info"
 });
 
-console.log (papertrail)
-
 const logger = winston.createLogger({
   transports: [papertrail],
 });
 
-console.log(process.env.GATSBY_LOG_TOKEN)
-
-// logger.error('hello papertrail');
-logger.error(process.env)
+//Este mensaje veo que se pinta las mismas veces cuando la ejecuto en local pero en netlify me da la sensacion de que solo lo hace la primera vez...
+logger.error(process.env._HANDLER + " - Se levanta la funcion.")
 
 exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
 
-  logger.error('hello papertrail');
+  logger.error(process.env._HANDLER+' - Se ejecuta la funcion.');
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   //console.log(envConfig.parsed)

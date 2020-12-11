@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { Anchor, Box, Footer, Text } from 'grommet';
 import { Gremlin, Gatsbyjs } from "grommet-icons"
 

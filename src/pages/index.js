@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Link, Text } from 'grommet';
+import { Box, Button } from 'grommet';
 import { Contact, Ticket } from "grommet-icons"
 
 import Layout from '../components/layout';
@@ -8,7 +8,7 @@ const IndexPage = () => {
 
   return(
     <Layout>
-      <Box margin='medium' align='center'>
+      <Box align='center'>
         {/* <div>
           <p>Hello Gatsby!</p>
           <p>{process.env.GATSBY_FUNC_PATH}</p>
@@ -19,7 +19,7 @@ const IndexPage = () => {
         <p>Hello Gatsby! {process.env.GATSBY_FUNC_PATH}</p>
         <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
         
-        <Box direction='row' fill="horizontal" justify="center" wrap="true">
+        <Box direction='row' fill="horizontal" justify="center" wrap>
           <Box align='center' background="dark-3" border="all" margin="small" pad="xlarge" width="medium">Tarjeta 1</Box>
           <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 2</Box>
           <Box align='center' background="dark-3" border="all" margin="small"  pad="xlarge" width="medium">Tarjeta 3</Box>
@@ -31,12 +31,13 @@ const IndexPage = () => {
             label="Contacta con nosotros"
             color="Grey"
             onClick={() => {}}
+            href="/formulario"
           />
           <Button
             icon={<Ticket />}
             label="Reserva"
             color="Yellow"
-            primary="true"
+            primary
             onClick={() => {}}
           />
         </Box>

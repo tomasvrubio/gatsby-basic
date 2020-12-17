@@ -1,7 +1,9 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from 'gatsby';
 import { Box, Button, Collapsible, Grommet, Layer, ResponsiveContext, Text } from 'grommet';
 import { FormClose, ProductHunt } from "grommet-icons"
+
 
 import OwnAppBar from './header';
 import OwnFooter from './footer';
@@ -47,69 +49,74 @@ class Layout extends React.Component{
   render(){
     return(
       <div style={{
-  height: '100%',
-  display: 'flex',
-  flexDirection: "column"
-}}>
-      <Grommet theme={theme}>
-        <ResponsiveContext.Consumer>
-        {size => (
-          <Box fill >
+        height: '100%',
+        display: 'flex',
+        flexDirection: "column"
+      }}>
+        <Helmet title={`Layout | ${process.env.GATSBY_NOMBRE_SITIO}`} >
+          <meta name="description" content="hola" />
+          <html lang="en" />
+        </Helmet>
+        <Grommet theme={theme} full={true} background='light-1'>
+          <ResponsiveContext.Consumer>
+          {size => (
+            <Box fill>
 
-            <OwnAppBar showSidebar={this.state.showSidebar} onShowSidebarChange={this.handleShowSidebarChange}/>
-            {/* TODO: Hacer que sea variable el botón que he puesto en la cabecera para que no aparezca en todas las páginas (en la de reserva por ejemplo) */}
+              <OwnAppBar showSidebar={this.state.showSidebar} onShowSidebarChange={this.handleShowSidebarChange}/>
+              {/* TODO: Hacer que sea variable el botón que he puesto en la cabecera para que no aparezca en todas las páginas (en la de reserva por ejemplo) */}
 
-            <Box direction='row' flex overflow={{ horizontal: 'hidden' }} pad="xsmall">
-              <Box flex align='center' background='dark-1'>
-                {this.props.children}
-              </Box>
-              {(!this.state.showSidebar || size !== 'small') ? (
-                <Collapsible direction="horizontal" open={this.state.showSidebar}>
-                  <Box
-                  flex
-                  width='medium'
-                  background='light-4'
-                  elevation='small'
-                  align='center'
-                  justify='center'
-                  >  
-                    <Box margin={{ vertical: `small` }}>
-                      <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
-                      <SideBarLink to="/history" text="History" icon={ProductHunt} />
-                    </Box>
-                  </Box>
-                </Collapsible>
-              ): (
-                <Layer>
-                  <Box
-                    background='light-2'
-                    tag='header'
-                    justify='end'
+              <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+                <Box flex align='center' >
+                  {this.props.children}
+                </Box>
+                {(!this.state.showSidebar || size !== 'small') ? (
+                  <Collapsible direction="horizontal" open={this.state.showSidebar}>
+                    <Box
+                    flex
+                    width='medium'
+                    background='light-4'
+                    elevation='small'
                     align='center'
-                    direction='row'
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => this.handleShowSidebarChange(false)}
-                    />
-                  </Box>
-                  <Box
                     fill
-                    background='light-2'
-                    align='center'
-                    justify='center'
-                  >
-                  </Box>
-                </Layer>
-              )}
+                    >  
+                      <Box margin={{ vertical: `small` }}>
+                        <SideBarLink to="/account" text="Admin" icon={ProductHunt} />
+                        <SideBarLink to="/history" text="History" icon={ProductHunt} />
+                      </Box>
+                    </Box>
+                  </Collapsible>
+                ): (
+                  <Layer>
+                    <Box
+                      background='light-2'
+                      tag='header'
+                      justify='end'
+                      align='center'
+                      direction='row'
+                    >
+                      <Button
+                        icon={<FormClose />}
+                        onClick={() => this.handleShowSidebarChange(false)}
+                      />
+                    </Box>
+                      Hola
+                    <Box
+                      fill
+                      background='light-2'
+                      align='center'
+                      justify='center'
+                    >
+                    </Box>
+                  </Layer>
+                )}
+              </Box>
+
+              <OwnFooter />
+
             </Box>
-
-            <OwnFooter />
-
-          </Box>
-        )}
-        </ResponsiveContext.Consumer>
-      </Grommet>
+          )}
+          </ResponsiveContext.Consumer>
+        </Grommet>
       </div>
     );
   }

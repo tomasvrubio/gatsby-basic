@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Box, Button } from 'grommet';
 import { Contact, Ticket } from "grommet-icons"
 
@@ -9,15 +10,9 @@ const IndexPage = () => {
   return(
     <Layout>
       <Box align='center'>
-        {/* <div>
-          <p>Hello Gatsby!</p>
-          <p>{process.env.GATSBY_FUNC_PATH}</p>
-          <Link to="/account">Go to your account</Link>
-          <Link to="/history">Go to history</Link>
-          <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
-        </div> */}
+
         <p>Hello Gatsby! {process.env.GATSBY_FUNC_PATH}</p>
-        <a href={process.env.GATSBY_FUNC_PATH + "/hello"}>Trigger hello Function here</a>
+        <Link to={"/functions"}>Trigger functions here</Link>
         
         <Box direction='row' fill="horizontal" justify="center" wrap>
           <Box align='center' background="dark-3" border="all" margin="small" pad="xlarge" width="medium">Tarjeta 1</Box>
@@ -41,9 +36,11 @@ const IndexPage = () => {
             onClick={() => {}}
           />
         </Box>
+
         <Box align="center" background="dark-3" border="all" fill="horizontal" pad="large">
           Instagram Feed  
         </Box>
+
       </Box>
     </Layout>
   )

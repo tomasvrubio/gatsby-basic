@@ -1,11 +1,14 @@
 import React from 'react';
+import { graphql } from "gatsby"
 import { Text, Box } from 'grommet';
 
 import Layout from '../components/layout';
 
-const History = () => (
+const History = ({data}) => (
   <Layout>
     <Box margin='medium' align='center'>
+      <h1>About {data.site.siteMetadata.title}</h1>
+
       <Text margin='small' size='large' style={{ maxWidth: '1000px' }}> We live in a period of internal uncertainty and the human society as a whole is suprised by strange events such as Greek Crisis, Brexit, Trump election. What is wrong with our society you ask yourself? </Text>
       <Text margin='small' size='large' style={{ maxWidth: '1000px' }}>In the times when humans were just starting to evolve from reptile forms, the natural position of a human was horizontal. Just a few weeks ago, more human ancestors from hundreds of thousands of years ago were found in China. Their position in the ground when found? Horizontal. </Text>
       <Text margin='small' size='large' style={{ maxWidth: '1000px' }}>As years passed and technology took over our civilazation, the unnatural vertical position became &#39;the new norm&#39;. The +/-90 degrees horizontal position helps to enhance our brain cells by bringing blood to the left side of the brain (or known as the &#39;leftist&#39; horizontal movement supported by creative professionals) or the right side of the brain (the &#39;right-wing&#39; movement supported by leaders and organizers). The horizontal movement also has the ultra left and extreme right wings, which support working at extreme angles up to 105 degrees.</Text>
@@ -16,5 +19,17 @@ const History = () => (
     </Box>
   </Layout>
 );
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+
 
 export default History;

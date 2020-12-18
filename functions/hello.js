@@ -32,6 +32,7 @@ exports.handler = async event => {
   const subject = event.queryStringParameters.name || 'World'
 
   logger.error(process.env._HANDLER+' - Se ejecuta la funcion.');
+  logger.info(process.env);
 
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   //console.log(envConfig.parsed)

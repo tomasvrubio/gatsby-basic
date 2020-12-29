@@ -34,6 +34,8 @@ exports.handler = async event => {
   logger.error(process.env._HANDLER+' - Se ejecuta la funcion.');
   logger.info(process.env);
 
+  console.log(process.env)
+
   // Mientras voy revisando las variables de entorno me viene bien ver los dos objetos.
   //console.log(envConfig.parsed)
   //console.log(process.env) // Aquí puedo ver que variables de utilidad llegan a la función al correr en Producción.

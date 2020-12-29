@@ -33,10 +33,6 @@ export const login = () => {
   if (!isBrowser) {
     return
   }
-
-  console.log(process.env.GATSBY_AUTH0_DOMAIN)
-  console.log(process.env.GATSBY_AUTH0_CLIENTID)
-  console.log(process.env.GATSBY_AUTH0_CALLBACK)
   
   auth.authorize()
 }

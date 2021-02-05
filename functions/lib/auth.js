@@ -22,6 +22,8 @@ const verifyJwt = NetlifyJwtVerifier({
   }
 });
 
+console.log(JSON.stringify(verifyJwt))
+
 /**
  * Require the request to be authenticated.
  */
